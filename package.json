@@ -1,0 +1,21 @@
+{
+  "name": "gymlog",
+  "version": "1.0.0",
+  "description": "개인용 블로그입니다.",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JiminLeeDev/GymLog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JiminLeeDev/GymLog/issues"
+  },
+  "homepage": "https://github.com/JiminLeeDev/GymLog#readme",
+  "type": "module"
+}

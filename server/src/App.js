@@ -1,6 +1,17 @@
+import { useEffect } from "react";
 import LogViewer from "./LogViwer";
+import { GetPost } from "../../db/server.js";
 
-function App() {
+function App({ id }) {
+  useEffect(() => {
+    GetPost()
+      .then((d) => {
+        console.log(d);
+        d.json();
+      })
+      .then((d) => console.log(d));
+  });
+
   return (
     <>
       <LogViewer

@@ -1,0 +1,12 @@
+import { createConnection } from "mysql";
+
+const connection = createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: "GymLog",
+});
+
+connection.connect();
+
+export default connection;

@@ -1,5 +1,5 @@
 import express from "express";
-import postRouter from "./post.js";
+import postRouter from "./routers/post.js";
 
 const app = express();
 const port = 8080;

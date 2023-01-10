@@ -1,8 +1,9 @@
-const db = require("mysql");
-const express = require("express");
+import { createConnection } from "mysql";
+import express from "express";
+
 const app = express();
 const port = 8080;
-const connection = db.createConnection({
+const connection = createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,

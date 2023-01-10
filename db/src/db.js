@@ -9,8 +9,8 @@ const connection = createConnection({
 
 connection.connect();
 
-export async function GetPost() {
-  const query = "SELECT * FROM Post";
+export async function GetPost(filter) {
+  const query = `SELECT * FROM Post ${filter ? `WHERE ${filter}` : ""}`;
 
   return await new Promise((resolve, reject) => {
     connection.query(query, (error, results, fields) => {

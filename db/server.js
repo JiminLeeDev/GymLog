@@ -3,10 +3,10 @@ const express = require("express");
 const app = express();
 const port = 8080;
 const connection = db.createConnection({
-  host: "",
-  user: "",
-  password: "",
-  database: "",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: "GymLog",
 });
 
 connection.connect();

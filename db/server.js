@@ -1,16 +1,8 @@
-import { createConnection } from "mysql";
 import express from "express";
+import { GetPost } from "./db.js";
 
 const app = express();
 const port = 8080;
-const connection = createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: "GymLog",
-});
-
-connection.connect();
 
 app.listen(port, () => {
   console.log(
@@ -38,17 +30,3 @@ app.get("/post", (req, res) => {
       console.error(error);
     });
 });
-
-async function GetPost() {
-  const query = "SELECT * FROM Post";
-
-  return await new Promise((resolve, reject) => {
-    connection.query(query, (error, results, fields) => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(results);
-      }
-    });
-  });
-}

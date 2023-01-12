@@ -1,24 +1,29 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import LogViewer from "./LogViwer";
-import { GetPost } from "../../db/server.js";
 
 function App({ id }) {
+  const [thread, setThread] = useState({});
+
   useEffect(() => {
-    GetPost()
-      .then((d) => {
-        console.log(d);
-        d.json();
-      })
-      .then((d) => console.log(d));
-  });
+    fetch("http://localhost:8080/thread")
+      .then((d) => d.json())
+      .then((d) =>
+        setThread({
+          title: d[0].title,
+          content: d[0].content,
+          date: d[0].date,
+          writer: d[0].writer,
+        })
+      );
+  }, []);
 
   return (
     <>
       <LogViewer
-        title="첫 로그"
-        content="처음 작성된 로그 문서입니다. "
-        write_date="2023-01-08-SUN:02:19:00"
-        writer="GymIn"
+        title={thread.title}
+        content={thread.content}
+        write_date={thread.date}
+        writer={thread.writer}
       />
     </>
   );

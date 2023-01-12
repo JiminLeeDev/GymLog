@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  InsertThread(req.body.title, req.body.content)
+  InsertThread(req.body.title, req.body.content, req.body.writer)
     .then((result) => {
       res.send(result);
 

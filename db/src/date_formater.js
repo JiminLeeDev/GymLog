@@ -1,6 +1,11 @@
 export function get_date_string(date) {
+  const TIME_ZONE = 3240 * 10000;
+
   try {
-    return date.toISOString().replace("T", " ").replace(/\..*/, "");
+    return new Date(+date + TIME_ZONE)
+      .toISOString()
+      .replace("T", " ")
+      .replace(/\..*/, "");
   } catch (error) {
     console.error(error);
 

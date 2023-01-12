@@ -5,6 +5,7 @@ const connection = createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: "GymLog",
+  dateStrings: "date",
 });
 
 connection.connect();

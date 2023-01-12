@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import LogViewer from "./LogViwer";
+import ThreadList from "./components/ThreadList";
 
 function App({ id }) {
   const [thread, setThread] = useState({});
 
   useEffect(() => {
     fetch("http://localhost:8080/thread")
-      .then((d) => d.json())
-      .then((d) =>
+      .then((threads) => threads.json())
+      .then((threads) =>
         setThread({
-          title: d[0].title,
-          content: d[0].content,
-          date: d[0].date,
-          writer: d[0].writer,
+          title: threads[0].title,
+          content: threads[0].content,
+          date: threads[0].date,
+          writer: threads[0].writer,
         })
       );
   }, []);
@@ -25,6 +26,8 @@ function App({ id }) {
         write_date={thread.date}
         writer={thread.writer}
       />
+
+      <ThreadList />
     </>
   );
 }

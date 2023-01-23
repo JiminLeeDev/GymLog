@@ -4,7 +4,7 @@ import express from "express";
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  GetThread()
+  GetThread(req.query.id ? `id=${req.query.id}` : "")
     .then((result) => {
       res.send(result);
 

@@ -1,4 +1,4 @@
-import { GetThread, InsertThread } from "../db/db.js";
+import { GetThread, InsertThread } from "../db/thread.js";
 import express from "express";
 
 const router = express.Router();

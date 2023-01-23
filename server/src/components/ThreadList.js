@@ -6,14 +6,23 @@ function App({ id }) {
   useEffect(() => {
     fetch("http://localhost:8080/thread")
       .then((threads) => threads.json())
-      .then((threads) => setThreads(threads));
+      .then((threads) => {
+        console.log(threads);
+        setThreads(threads);
+      });
   }, []);
 
   return (
     <ul>
-      {threads.map((thread) => (
-        <li>{`${thread.title} - ${thread.writer} ${thread.date} `}</li>
-      ))}
+      {threads.length > 0
+        ? threads.map((thread) => (
+            <li key={thread.id}>
+              <a
+                href={`http://localhost:3000/${thread.id}`}
+              >{`${thread.title} - ${thread.writer} ${thread.date} `}</a>
+            </li>
+          ))
+        : ""}
     </ul>
   );
 }

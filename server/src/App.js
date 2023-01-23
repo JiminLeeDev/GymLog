@@ -8,7 +8,6 @@ function App() {
   const params = useParams();
 
   useEffect(() => {
-    console.log(params);
     fetch(`http://localhost:8080/thread?id=${params.id}`)
       .then((threads) => threads.json())
       .then((threads) =>

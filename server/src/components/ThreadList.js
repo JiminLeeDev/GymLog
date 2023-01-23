@@ -7,7 +7,6 @@ function App({ id }) {
     fetch("http://localhost:8080/thread")
       .then((threads) => threads.json())
       .then((threads) => {
-        console.log(threads);
         setThreads(threads);
       });
   }, []);

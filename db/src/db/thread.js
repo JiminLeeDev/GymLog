@@ -44,3 +44,25 @@ export async function InsertThread(title, content, writer) {
     });
   }
 }
+
+export async function DeleteThread(filter) {
+  if (!filter) {
+    return await new Promise((resolve, reject) => {
+      reject({
+        message: "선택하신 게시글이 thread 데이터를 없어 삭제할 수 없습니다.",
+      });
+    });
+  } else {
+    const query = `DELETE FROM Thread WHERE ${filter}`;
+
+    return await new Promise((resolve, reject) => {
+      db.query(query, (error, results, fields) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(results);
+        }
+      });
+    });
+  }
+}

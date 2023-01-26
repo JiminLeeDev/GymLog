@@ -1,4 +1,4 @@
-import { GetThread, InsertThread } from "../db/thread.js";
+import { DeleteThread, GetThread, InsertThread } from "../db/thread.js";
 import express from "express";
 
 const router = express.Router();
@@ -29,6 +29,21 @@ router.post("/", (req, res) => {
       res.send(error);
 
       console.log("성공적으로 thread 데이터를 삽입하지 못했습니다.");
+      console.error(error);
+    });
+});
+
+router.delete("/", (req, res) => {
+  DeleteThread(req.body.id ? `id=${req.body.id}` : "")
+    .then((result) => {
+      res.send(result);
+
+      console.log("성공적으로 thread 데이터를 삭제했습니다.");
+    })
+    .catch((error) => {
+      res.send(error);
+
+      console.log("성공적으로 thread 데이터를 삭제하지 못했습니다.");
       console.error(error);
     });
 });

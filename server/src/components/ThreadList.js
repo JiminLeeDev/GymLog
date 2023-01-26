@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function App({ id }) {
+function App() {
   const [threads, setThreads] = useState([]);
 
   useEffect(() => {

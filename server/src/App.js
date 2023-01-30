@@ -71,6 +71,8 @@ function App() {
             .then((insert_result) => {
               if (insert_result.success) {
                 window.location.href = `/threads/${insert_result.results.insertId}`;
+              } else {
+                alert(insert_result.errorMessage);
               }
             });
         }}

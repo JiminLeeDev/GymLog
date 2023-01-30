@@ -101,7 +101,7 @@ function App() {
               onChange={on_change_form}
               value={state.writer}
             />
-            <input type="submit" value="전송" />
+            <input type="submit" value="작성" />
           </div>
         </fieldset>
       </form>

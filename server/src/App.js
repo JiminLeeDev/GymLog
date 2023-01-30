@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LogViewer from "./LogViwer";
 import ThreadList from "./components/ThreadList";
+import { Button, Paper, TextField } from "@mui/material";
 
 export default function App() {
   const [state, setState] = useState({
@@ -77,36 +78,43 @@ export default function App() {
             });
         }}
       >
-        <fieldset style={{ width: "50%" }}>
-          <legend>게시글 작성</legend>
+        <Paper
+          sx={{
+            padding: "2%",
+            margin: "2%",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <TextField
+            label="제목"
+            variant="standard"
+            name="new_thread_title"
+            onChange={on_change_form}
+            value={state.new_thread_title}
+          />
 
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <textarea
-              rows={5}
-              cols={20}
-              name="new_thread_content"
-              style={{ resize: "none" }}
-              placeholder="본문"
-              onChange={on_change_form}
-              value={state.content}
-            />
-            <input
-              type="text"
-              name="new_thread_title"
-              placeholder="제목"
-              onChange={on_change_form}
-              value={state.title}
-            />
-            <input
-              type="text"
-              name="new_thread_writer"
-              placeholder="작성자"
-              onChange={on_change_form}
-              value={state.writer}
-            />
-            <input type="submit" value="작성" />
-          </div>
-        </fieldset>
+          <TextField
+            label="본문"
+            variant="standard"
+            name="new_thread_content"
+            onChange={on_change_form}
+            value={state.new_thread_content}
+            multiline
+            rows={15}
+            maxRows={15}
+          />
+
+          <TextField
+            label="작성자명"
+            variant="standard"
+            name="new_thread_writer"
+            onChange={on_change_form}
+            value={state.new_thread_writer}
+          />
+
+          <Button type="submit">작성</Button>
+        </Paper>
       </form>
 
       <ThreadList />

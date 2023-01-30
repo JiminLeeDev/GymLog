@@ -1,31 +1,37 @@
+import { Button, Paper, Typography } from "@mui/material";
+
 export default function LogViewer({ id, title, writer, content, write_date }) {
   return (
     <>
-      <span>
-        {title} by {writer} - {write_date}
-      </span>
-
-      <button
-        onClick={() => {
-          fetch("http://localhost:8080/thread", {
-            method: "delete",
-            body: JSON.stringify({
-              id: id,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-
-          window.location.reload();
-        }}
+      <Paper
+        elevation={4}
+        sx={{ padding: "2%", margin: "2%", minHeight: "85vh" }}
       >
-        글 삭제
-      </button>
+        <Typography>
+          {title} - {writer}에 의해 {write_date}에 작성되었습니다.
+          <Button
+            onClick={() => {
+              fetch("http://localhost:8080/thread", {
+                method: "delete",
+                body: JSON.stringify({
+                  id: id,
+                }),
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              });
 
-      <pre>
-        <p>{content}</p>
-      </pre>
+              window.location.reload();
+            }}
+          >
+            글 삭제
+          </Button>
+        </Typography>
+
+        <Typography>
+          <pre>{content}</pre>
+        </Typography>
+      </Paper>
     </>
   );
 }

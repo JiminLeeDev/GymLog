@@ -68,10 +68,11 @@ function App() {
             },
           })
             .then((insert_result) => insert_result.json())
-            .then(
-              (insert_result) =>
-                (window.location.href = `/threads/${insert_result.results.insertId}`)
-            );
+            .then((insert_result) => {
+              if (insert_result.success) {
+                window.location.href = `/threads/${insert_result.results.insertId}`;
+              }
+            });
         }}
       >
         <fieldset style={{ width: "50%" }}>

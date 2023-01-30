@@ -4,7 +4,9 @@ import express from "express";
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  GetThread(req.query.id ? `id=${req.query.id}` : "")
+  const filter = req.query.id !== undefined ? `id=${req.query.id}` : "";
+
+  GetThread(filter)
     .then((result) => {
       res.send(result);
 

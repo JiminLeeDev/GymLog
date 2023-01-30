@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import LogViewer from "./LogViwer";
 import ThreadList from "./components/ThreadList";
 
-function App() {
+export default function App() {
   const [state, setState] = useState({
     thread_id: undefined,
     thread_title: "",
@@ -113,5 +113,3 @@ function App() {
     </>
   );
 }
-
-export default App;

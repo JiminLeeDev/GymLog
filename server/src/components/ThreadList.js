@@ -18,6 +18,24 @@ function App() {
               style={{ textDecoration: "none" }}
               href={`http://localhost:3000/threads/${thread.id}`}
             >{`${thread.title} - ${thread.writer} ${thread.date} `}</a>
+
+            <button
+              onClick={() => {
+                fetch("http://localhost:8080/thread", {
+                  method: "delete",
+                  body: JSON.stringify({
+                    id: thread.id,
+                  }),
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                });
+
+                window.location.reload();
+              }}
+            >
+              글 삭제
+            </button>
           </li>
         );
       })}

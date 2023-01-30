@@ -10,7 +10,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<App />} />
-        <Route path="/:id" element={<App />} />
+        <Route path="/threads/:id" element={<App />} />
+        <Route path="/threads" element={<App />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

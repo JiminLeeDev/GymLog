@@ -20,31 +20,38 @@ function App() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:8080/thread?id=${params.id}`)
-      .then((threads) => threads.json())
-      .then((threads) =>
-        threads.length > 0
-          ? setState({
-              ...state,
-              thread_id: threads[0].id,
-              thread_title: threads[0].title,
-              thread_content: threads[0].content,
-              thread_date: threads[0].date,
-              thread_writer: threads[0].writer,
-            })
-          : ""
-      );
+    if (params.id !== undefined) {
+      fetch(`http://localhost:8080/thread?id=${params.id}`)
+        .then((threads) => threads.json())
+        .then((threads) =>
+          threads.success
+            ? setState({
+                ...state,
+                thread_id: threads.results[0].id,
+                thread_title: threads.results[0].title,
+                thread_content: threads.results[0].content,
+                thread_date: threads.results[0].date,
+                thread_writer: threads.results[0].writer,
+              })
+            : ""
+        );
+    }
   }, []);
 
   return (
     <>
-      <LogViewer
-        id={state.thread_id}
-        title={state.thread_title}
-        content={state.thread_content}
-        write_date={state.thread_date}
-        writer={state.thread_writer}
-      />
+      {state.thread_id ? (
+        <LogViewer
+          id={state.thread_id}
+          title={state.thread_title}
+          content={state.thread_content}
+          write_date={state.thread_date}
+          writer={state.thread_writer}
+        />
+      ) : (
+        ""
+      )}
+
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -59,9 +66,12 @@ function App() {
             headers: {
               "Content-Type": "application/json",
             },
-          });
-
-          window.location.reload();
+          })
+            .then((insert_result) => insert_result.json())
+            .then(
+              (insert_result) =>
+                (window.location.href = `/threads/${insert_result.results.insertId}`)
+            );
         }}
       >
         <fieldset style={{ width: "50%" }}>

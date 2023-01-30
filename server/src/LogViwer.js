@@ -11,15 +11,18 @@ export default function LogViewer({ id, title, writer, content, write_date }) {
           {title} - {writer}에 의해 {write_date}에 작성되었습니다.
           <Button
             onClick={() => {
-              fetch("http://localhost:8080/thread", {
-                method: "delete",
-                body: JSON.stringify({
-                  id: id,
-                }),
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              });
+              fetch(
+                `${process.env.db_server_address}:${process.env.db_server_port}/thread`,
+                {
+                  method: "delete",
+                  body: JSON.stringify({
+                    id: id,
+                  }),
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
 
               window.location.reload();
             }}
@@ -28,7 +31,7 @@ export default function LogViewer({ id, title, writer, content, write_date }) {
           </Button>
         </Typography>
 
-        <Typography>
+        <Typography component={"span"}>
           <pre>{content}</pre>
         </Typography>
       </Paper>

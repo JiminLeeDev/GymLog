@@ -12,7 +12,7 @@ export default function LogViewer({ id, title, writer, content, write_date }) {
           <Button
             onClick={() => {
               fetch(
-                `${process.env.db_server_address}:${process.env.db_server_port}/thread`,
+                `${process.env.DB_SERVER_ADDRESS}:${process.env.DB_SERVER_PORT}/thread`,
                 {
                   method: "delete",
                   body: JSON.stringify({

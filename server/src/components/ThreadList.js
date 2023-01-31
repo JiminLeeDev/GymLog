@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     fetch(
-      `${process.env.db_server_address}:${process.env.db_server_port}/thread`
+      `${process.env.DB_SERVER_ADDRESS}:${process.env.DB_SERVER_PORT}/thread`
     )
       .then((threads) => threads.json())
       .then((threads) => setThreads(threads.success ? threads.results : []));
@@ -55,7 +55,7 @@ function App() {
                     <Button
                       onClick={() =>
                         fetch(
-                          `${process.env.db_server_address}:${process.env.db_server_port}/thread`,
+                          `${process.env.DB_SERVER_ADDRESS}:${process.env.DB_SERVER_PORT}/thread`,
                           {
                             method: "delete",
                             body: JSON.stringify({

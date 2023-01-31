@@ -18,7 +18,7 @@ export default function ThreadWrite() {
         e.preventDefault();
 
         fetch(
-          `${process.env.db_server_address}:${process.env.db_server_port}/thread`,
+          `${process.env.DB_SERVER_ADDRESS}:${process.env.DB_SERVER_PORT}/thread`,
           {
             method: "post",
             body: JSON.stringify({

@@ -8,6 +8,7 @@ const connection = createConnection({
   dateStrings: "date",
 });
 
+console.log(process.env.DB_HOST);
 connection.connect();
 
 export default connection;

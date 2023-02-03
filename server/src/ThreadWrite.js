@@ -17,6 +17,8 @@ export default function ThreadWrite() {
       onSubmit={(e) => {
         e.preventDefault();
 
+        console.log(`${process.env.DB_SERVER_ADDRESS}:${process.env.DB_SERVER_PORT}/thread`)
+        
         fetch(
           `${process.env.DB_SERVER_ADDRESS}:${process.env.DB_SERVER_PORT}/thread`,
           {

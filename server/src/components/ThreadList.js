@@ -12,7 +12,6 @@ function App() {
   const [threads, setThreads] = useState([]);
 
   useEffect(() => {
-    console.log(process.env);
     fetch(
       `${process.env.REACT_APP_DB_SERVER_ADDRESS}:${process.env.REACT_APP_DB_SERVER_PORT}/thread`
     )

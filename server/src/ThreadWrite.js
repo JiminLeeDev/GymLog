@@ -17,10 +17,6 @@ export default function ThreadWrite() {
       onSubmit={(e) => {
         e.preventDefault();
 
-        console.log(
-          `${process.env.REACT_APP_DB_SERVER_ADDRESS}:${process.env.REACT_APP_DB_SERVER_PORT}/thread`
-        );
-
         fetch(
           `${process.env.REACT_APP_DB_SERVER_ADDRESS}:${process.env.REACT_APP_DB_SERVER_PORT}/thread`,
           {

@@ -3,7 +3,7 @@ import threadRouter from "./routers/thread.js";
 import cors from "cors";
 
 const app = express();
-const port = process.env.DB_SERVER_PORT;
+const port = process.env.REACT_APP_DB_SERVER_PORT;
 
 app.use(cors());
 app.use(express.json());
@@ -12,7 +12,7 @@ app.use("/thread", threadRouter);
 
 app.listen(port, () => {
   console.log(
-    `${port} 포트에서 서버가 실행되고 있습니다. 주소: ${process.env.DB_SERVER_ADDRESS}:${port}`
+    `${port} 포트에서 서버가 실행되고 있습니다. 주소: ${process.env.REACT_APP_DB_SERVER_ADDRESS}:${port}`
   );
 });
 

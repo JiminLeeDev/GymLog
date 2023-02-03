@@ -72,7 +72,7 @@ export default function ThreadWrite() {
           variant="standard"
           name="writer"
           onChange={on_change_form}
-          value={state._writer}
+          value={state.writer}
         />
 
         <Button type="submit">작성</Button>

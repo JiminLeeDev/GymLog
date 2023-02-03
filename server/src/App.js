@@ -13,6 +13,7 @@ export default function App() {
   const params = useParams();
 
   useEffect(() => {
+    console.log(process.env);
     if (params.id !== undefined) {
       fetch(
         `${process.env.REACT_APP_DB_SERVER_ADDRESS}:${process.env.REACT_APP_DB_SERVER_PORT}/thread?id=${params.id}`

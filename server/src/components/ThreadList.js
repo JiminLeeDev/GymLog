@@ -12,8 +12,9 @@ function App() {
   const [threads, setThreads] = useState([]);
 
   useEffect(() => {
+    console.log(process.env);
     fetch(
-      `${process.env.DB_SERVER_ADDRESS}:${process.env.DB_SERVER_PORT}/thread`
+      `${process.env.REACT_APP_DB_SERVER_ADDRESS}:${process.env.REACT_APP_DB_SERVER_PORT}/thread`
     )
       .then((threads) => threads.json())
       .then((threads) => setThreads(threads.success ? threads.results : []));
@@ -55,7 +56,7 @@ function App() {
                     <Button
                       onClick={() =>
                         fetch(
-                          `${process.env.DB_SERVER_ADDRESS}:${process.env.DB_SERVER_PORT}/thread`,
+                          `${process.env.REACT_APP_DB_SERVER_ADDRESS}:${process.env.REACT_APP_DB_SERVER_PORT}/thread`,
                           {
                             method: "delete",
                             body: JSON.stringify({

@@ -17,10 +17,12 @@ export default function ThreadWrite() {
       onSubmit={(e) => {
         e.preventDefault();
 
-        console.log(`${process.env.DB_SERVER_ADDRESS}:${process.env.DB_SERVER_PORT}/thread`)
-        
+        console.log(
+          `${process.env.REACT_APP_DB_SERVER_ADDRESS}:${process.env.REACT_APP_DB_SERVER_PORT}/thread`
+        );
+
         fetch(
-          `${process.env.DB_SERVER_ADDRESS}:${process.env.DB_SERVER_PORT}/thread`,
+          `${process.env.REACT_APP_DB_SERVER_ADDRESS}:${process.env.REACT_APP_DB_SERVER_PORT}/thread`,
           {
             method: "post",
             body: JSON.stringify({

@@ -15,7 +15,7 @@ export default function App() {
   useEffect(() => {
     if (params.id !== undefined) {
       fetch(
-        `${process.env.DB_SERVER_ADDRESS}:${process.env.DB_SERVER_PORT}/thread?id=${params.id}`
+        `${process.env.REACT_APP_DB_SERVER_ADDRESS}:${process.env.REACT_APP_DB_SERVER_PORT}/thread?id=${params.id}`
       )
         .then((threads) => threads.json())
         .then((threads) =>

@@ -8,6 +8,22 @@ const connection = createConnection({
   dateStrings: "date",
 });
 
-connection.connect();
+function handleDisconnect() {
+  connection.connect(function(err) {            
+    if(err) {                            
+      setTimeout(handleDisconnect, 2000); 
+    }                                   
+  });                                 
+                                         
+  connection.on('error', function(err) {
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
+      return handleDisconnect();                      
+    } else {                                    
+      throw err;                              
+    }
+  });
+}
+
+handleDisconnect();
 
 export default connection;

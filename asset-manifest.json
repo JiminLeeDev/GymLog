@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/gym-log/static/css/main.3d8b7380.css",
+    "main.js": "/gym-log/static/js/main.87f42dc4.js",
+    "index.html": "/gym-log/index.html",
+    "main.3d8b7380.css.map": "/gym-log/static/css/main.3d8b7380.css.map",
+    "main.87f42dc4.js.map": "/gym-log/static/js/main.87f42dc4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3d8b7380.css",
+    "static/js/main.87f42dc4.js"
+  ]
+}

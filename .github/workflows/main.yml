@@ -1,0 +1,17 @@
+    on:
+      push:
+        branches:
+          - gh-pages
+    jobs:
+      build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+        - name: 'Create env file'
+          run: |
+            touch .env
+            echo REACT_APP_DB_HOST=${{secrets.REACT_APP_DB_HOST}} >> .env
+            echo REACT_APP_DB_USER=${{secrets.REACT_APP_DB_USER}} >> .env
+            echo REACT_APP_DB_ADDRESS=${{secrets.REACT_APP_DB_ADDRESS}} >> .env
+            echo REACT_APP_DB_PORT=${{secrets.REACT_APP_DB_PORT}} >> .env
+            echo REACT_APP_DB_PASSWORD=${{secrets.REACT_APP_DB_PASSWORD}} >> .env
+            cat .env

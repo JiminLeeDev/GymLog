@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/http://jiminleedev.github.io/GymLog/static/css/main.3d8b7380.css",
-    "main.js": "/http://jiminleedev.github.io/GymLog/static/js/main.9ced86cc.js",
+    "main.js": "/http://jiminleedev.github.io/GymLog/static/js/main.bcfaefad.js",
     "index.html": "/http://jiminleedev.github.io/GymLog/index.html",
     "main.3d8b7380.css.map": "/http://jiminleedev.github.io/GymLog/static/css/main.3d8b7380.css.map",
-    "main.9ced86cc.js.map": "/http://jiminleedev.github.io/GymLog/static/js/main.9ced86cc.js.map"
+    "main.bcfaefad.js.map": "/http://jiminleedev.github.io/GymLog/static/js/main.bcfaefad.js.map"
   },
   "entrypoints": [
     "static/css/main.3d8b7380.css",
-    "static/js/main.9ced86cc.js"
+    "static/js/main.bcfaefad.js"
   ]
 }

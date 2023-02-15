@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/GymLog/static/css/main.3d8b7380.css",
-    "main.js": "/GymLog/static/js/main.0b7aa072.js",
+    "main.js": "/GymLog/static/js/main.fe1b71b1.js",
     "index.html": "/GymLog/index.html",
     "main.3d8b7380.css.map": "/GymLog/static/css/main.3d8b7380.css.map",
-    "main.0b7aa072.js.map": "/GymLog/static/js/main.0b7aa072.js.map"
+    "main.fe1b71b1.js.map": "/GymLog/static/js/main.fe1b71b1.js.map"
   },
   "entrypoints": [
     "static/css/main.3d8b7380.css",
-    "static/js/main.0b7aa072.js"
+    "static/js/main.fe1b71b1.js"
   ]
 }
